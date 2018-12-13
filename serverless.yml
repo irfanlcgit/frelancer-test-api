@@ -145,7 +145,7 @@ functions:
           path: users/getbyemail
           method: post
           cors: true
-          authorizer: none
+          authorizer: aws_iam
 
 # Create our resources with separate CloudFormation templates
 resources:
