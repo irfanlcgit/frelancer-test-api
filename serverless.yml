@@ -134,6 +134,18 @@ functions:
           method: get
           cors: true
           authorizer: aws_iam
+  
+  users-getByEmail:
+    # Defines an HTTP API endpoint that calls the main function in get.js
+    # - path: url path is /users/{id}
+    # - method: GET request
+    handler: users-get-by-email.main
+    events:
+      - http:
+          path: users/getbyemail
+          method: post
+          cors: true
+          authorizer: none
 
 # Create our resources with separate CloudFormation templates
 resources:
