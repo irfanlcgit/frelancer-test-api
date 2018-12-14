@@ -4,16 +4,17 @@ import { success, failure } from "./libs/response-lib";
 export async function main(event, context) {
   const data = JSON.parse(event.body);
   const params = {
-    TableName: process.env.tableName,
+    TableName: "Users",
+    IndexName: "EmailAddress",
     // 'KeyConditionExpression' defines the condition for the query
     // - 'userId = :userId': only return items with matching 'userId'
     //   partition key
     // 'ExpressionAttributeValues' defines the value in the condition
     // - ':userId': defines 'userId' to be Identity Pool identity id
     //   of the authenticated user
-    KeyConditionExpression: "EmailAddres = :EmailAddress",
+    KeyConditionExpression: "EmailAddress = :EmailAddress",
     ExpressionAttributeValues: {
-      ":EmailAddress": data.EmailAddres
+      ":EmailAddress": data.EmailAddress
     }
   };
 
@@ -36,6 +37,6 @@ export async function main(event, context) {
         return success({ status: false, error: "Item not found." });
       }
   } catch (e) {
-    return failure({ status: false });
+    return failure({ status: false, error: e });
   }
 }

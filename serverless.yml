@@ -70,9 +70,6 @@ functions:
           cors: true
           authorizer: aws_iam
 
-
-          
-
   get:
     # Defines an HTTP API endpoint that calls the main function in get.js
     # - path: url path is /notes/{id}
@@ -93,10 +90,9 @@ functions:
     events:
       - http:
           path: notes
-          method: post
-          cors: false
+          method: get
+          cors: true
           authorizer: aws_iam
-
 
   update:
     # Defines an HTTP API endpoint that calls the main function in update.js
@@ -110,8 +106,6 @@ functions:
           cors: true
           authorizer: aws_iam
 
-
-
   delete:
     # Defines an HTTP API endpoint that calls the main function in delete.js
     # - path: url path is /notes/{id}
@@ -123,9 +117,339 @@ functions:
           method: delete
           cors: true
           authorizer: aws_iam
+  
+  activitylog-create:
+    handler: activitylog-create.main
+    events:
+      - http:
+          path: activitylog
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  activitylog-list:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # - path: url path is /notes
+    # - method: GET request
+    handler: activitylog-list.main
+    events:
+      - http:
+          path: activitylog
+          method: get
+          cors: true
+          authorizer: aws_iam
+   
+  
+  company-create:
+    handler: company-create.main
+    events:
+      - http:
+          path: company
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+
+  company-get:
+    # Defines an HTTP API endpoint that calls the main function in get.js
+    # - path: url path is /notes/{id}
+    # - method: GET request
+    handler: company-get.main
+    events:
+      - http:
+          path: company/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  company-list:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # - path: url path is /notes
+    # - method: GET request
+    handler: company-list.main
+    events:
+      - http:
+          path: company
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  company-update:
+    # Defines an HTTP API endpoint that calls the main function in update.js
+    # - path: url path is /company/{id}
+    # - method: PUT request
+    handler: company-update.main
+    events:
+      - http:
+          path: company/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+  
+  documents-create:
+    handler: documents-create.main
+    events:
+      - http:
+          path: documents
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  documents-get:
+    # Defines an HTTP API endpoint that calls the main function in get.js
+    # - path: url path is /notes/{id}
+    # - method: GET request
+    handler: documents-get.main
+    events:
+      - http:
+          path: documents/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  documents-list:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # - path: url path is /notes
+    # - method: GET request
+    handler: documents-list.main
+    events:
+      - http:
+          path: documents
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  documents-update:
+    # Defines an HTTP API endpoint that calls the main function in update.js
+    # - path: url path is /documents/{id}
+    # - method: PUT request
+    handler: documents-update.main
+    events:
+      - http:
+          path: documents/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  documents-delete:
+    # Defines an HTTP API endpoint that calls the main function in delete.js
+    # - path: url path is /notes/{id}
+    # - method: DELETE request
+    handler: documents-delete.main
+    events:
+      - http:
+          path: documents/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+
+  documents-api-create:
+    handler: documents-api-create.main
+    events:
+      - http:
+          path: documents-api
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  email2:
+    handler: email.main
+    events:
+      - http:
+          path: email
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  metadata-list:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # - path: url path is /notes
+    # - method: GET request
+    handler: metadata-list.main
+    events:
+      - http:
+          path: metadata
+          method: get
+          cors: true
+          authorizer: aws_iam
+  
+  metadata-delete:
+    # Defines an HTTP API endpoint that calls the main function in delete.js
+    # - path: url path is /metadata/{id}
+    # - method: DELETE request
+    handler: metadata-delete.main
+    events:
+      - http:
+          path: metadata/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+
+  newsfeed-list:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # - path: url path is /notes
+    # - method: GET request
+    handler: newsfeed-list.main
+    events:
+      - http:
+          path: newsfeed
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  preview-create:
+    handler: preview-create.main
+    events:
+      - http:
+          path: preview
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  preview-pdf:
+    handler: preview-pdf.main
+    events:
+      - http:
+          path: preview/pdf
+          method: post
+          cors: true
+          authorizer: aws_iam
+  
+  syscompany-create:
+    handler: syscompany-create.main
+    events:
+      - http:
+          path: syscompany
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  settings-create:
+    handler: settings-create.main
+    events:
+      - http:
+          path: settings
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  settings-list:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # - path: url path is /notes
+    # - method: GET request
+    handler: settings-list.main
+    events:
+      - http:
+          path: settinds
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  settings-update:
+    # Defines an HTTP API endpoint that calls the main function in update.js
+    # - path: url path is /notes/{id}
+    # - method: PUT request
+    handler: settings-update.main
+    events:
+      - http:
+          path: settings/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  syscompany-get:
+    # Defines an HTTP API endpoint that calls the main function in get.js
+    # - path: url path is /notes/{id}
+    # - method: GET request
+    handler: syscompany-get.main
+    events:
+      - http:
+          path: syscompany/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+          
+  timecards-create:
+    handler: timecards-create.main
+    events:
+      - http:
+          path: timecards
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  timecards-get:
+    # Defines an HTTP API endpoint that calls the main function in get.js
+    # - path: url path is /notes/{id}
+    # - method: GET request
+    handler: timecards-get.main
+    events:
+      - http:
+          path: timecards/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+  
+  timecards-list:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # - path: url path is /notes
+    # - method: GET request
+    handler: timecards-list.main
+    events:
+      - http:
+          path: timecards
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  users-timecards-list:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # - path: url path is /notes
+    # - method: GET request
+    handler: users-timecards-list.main
+    events:
+      - http:
+          path: timecards/api
+          method: get
+          cors: true
+          authorizer: aws_iam
+  
+  timecards-update:
+    # Defines an HTTP API endpoint that calls the main function in update.js
+    # - path: url path is /notes/{id}
+    # - method: PUT request
+    handler: timecards-update.main
+    events:
+      - http:
+          path: timecards/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  timecards-delete:
+    # Defines an HTTP API endpoint that calls the main function in delete.js
+    # - path: url path is /notes/{id}
+    # - method: DELETE request
+    handler: timecards-delete.main
+    events:
+      - http:
+          path: timecards/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+
+  users-create:
+    handler: users-create.main
+    events:
+      - http:
+          path: users
+          method: post
+          cors: true
+          authorizer: aws_iam
+
   users-get:
     # Defines an HTTP API endpoint that calls the main function in get.js
-    # - path: url path is /users/{id}
+    # - path: url path is /notes/{id}
     # - method: GET request
     handler: users-get.main
     events:
@@ -134,7 +458,31 @@ functions:
           method: get
           cors: true
           authorizer: aws_iam
-  
+                  
+  users-list:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # - path: url path is /notes
+    # - method: GET request
+    handler: users-list.main
+    events:
+      - http:
+          path: users
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  users-update:
+    # Defines an HTTP API endpoint that calls the main function in update.js
+    # - path: url path is /notes/{id}
+    # - method: PUT request
+    handler: users-update.main
+    events:
+      - http:
+          path: users/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
   users-getByEmail:
     # Defines an HTTP API endpoint that calls the main function in get.js
     # - path: url path is /users/{id}
@@ -149,8 +497,6 @@ functions:
 
 # Create our resources with separate CloudFormation templates
 resources:
-  # DynamoDB
-  - ${file(resources/dynamodb-table.yml)}
     # S3
   - ${file(resources/s3-bucket.yml)}
     # Cognito
